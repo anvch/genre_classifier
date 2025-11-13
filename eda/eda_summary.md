@@ -1,16 +1,16 @@
-Data:
-
-Genius Song Lyrics: https://www.kaggle.com/datasets/carlosgdcj/genius-song-lyrics-with-language-information/data
-
-Spotify Tracks Genre: https://www.kaggle.com/datasets/thedevastator/spotify-tracks-genre-dataset/data 
-
 ## Dataset Selection 
 
 We are selecting these datasets because they are pretty comprehensive/we don't have to do any web scraping to get this information. Especially for Spotify metadata, the features they have such as 'danceability' seem to be pretty interesting and could differentiate between different genres (since we generally hypothesize that genres such as C-pop are more emo and therefore less 'danceable'). However, we think other features for the lyrics also can differentiate genres (i.e. we have observed that K-pop has a lot of repetitive choruses). As such, our dataset will be made by joining the Genius song lyrics dataset with the Spotify Tracks Metadata dataset. However, this join narrows down the available data significantly as you will see below.
 
 We are also really only interested in scoping to differentiate between Asian pop, and so we chose to only include songs that are Chinese/Japanese/Korean/Indian (which we filtered by language code).
 
-Our final data we are analyzing can be found in ```data/asian_songs_translated_w_metadata_lyric_features.parquet```. The code to make this dataset can be found in ```eda/eda.ipynb```. To run the notebook, you must first ensure that you download the csv data from the links above and convert to parquet (respectively, name them song_lyrics.parquet and song_metadata.parquet).
+Our final data we are analyzing can be found in ```data/asian_songs_translated_w_metadata_lyric_features.parquet```. The code to make this dataset can be found in ```eda/eda.ipynb```. To run the notebook, you must first ensure that you download the csv data from the links below and convert to parquet (respectively, name them ```song_lyrics.parquet``` and ```song_metadata.parquet```).
+
+### Download Source Data:
+
+Genius Song Lyrics: https://www.kaggle.com/datasets/carlosgdcj/genius-song-lyrics-with-language-information/data
+
+Spotify Tracks Genre: https://www.kaggle.com/datasets/thedevastator/spotify-tracks-genre-dataset/data 
 
 ---------
 ## Exploratory Data Analysis
@@ -46,5 +46,6 @@ Answered above.
 We learned that __________.
 
 ### What issues or open questions remain?
+
 
 
