@@ -22,7 +22,7 @@ Spotify Tracks Genre: https://www.kaggle.com/datasets/thedevastator/spotify-trac
 ## Key variables, data volume, missingness, and potential target or interaction signals.
 
 Key columns/variables:
-title, tag (music type), artist, year, views (Genius lyrics views), popularity, duration_ms, acousticness, explicit, danceability, key, loudness, speechiness, liveness, valence, tempo, clean_lyrics, lyrics_translated, word_count, unique_words, repetition_ratio, lexical_diversity, sentiment_polarity, region_group
+title, tag (music type), artist, year, views (Genius lyrics views), popularity, duration_ms, acousticness, explicit, danceability, key, loudness, speechiness, liveness, valence, tempo, clean_lyrics, lyrics_translated, word_count, unique_words, repetition_ratio, lexical_diversity, embeddings, sentiment_polarity, region_group
 
 To keep the data balanced, we wanted to aim to have roughly the same number of songs within each genre. We were aiming for around 50 for each genre, but unfortunately Chinese is lacking with only 24 songs.
 
@@ -42,4 +42,9 @@ For this data, however, at least all of the columns are filled.
 
 ## Initial ideas for features and any anticipated challenges
 
-The most promising features that we would like to explore out of all the available columns would be repetition_ratio, lexical_diversity, sentiment_polarity, tempo, key, duration_ms, and tag. We should avoid using the features of title, artist, clean_lyrics, and region_group because those give away the genre pretty explicitly rather than having us try to find the latent features underlying the different genres. region_group would be our ground truth as to what genre each song is. If the Spotify metadata seems to be not that promising or if we have too little data, we can attempt to just use the Genius song lyrics metadata with our extracted features because they have a lot more variety of songs. Another issue is that some of the songs we selected may be from a lesser variety of artists than we hope (i.e. a lot of the K-pop is BTS).
+The most promising features that we would like to explore out of all the available columns would be repetition_ratio, lexical_diversity, sentiment_polarity, embeddings, tempo, key, duration_ms, and tag. 
+
+
+We should avoid using the features of title, artist, clean_lyrics, and region_group because those give away the genre pretty explicitly rather than having us try to find the latent features underlying the different genres. region_group would be our ground truth as to what genre each song is. If the Spotify metadata seems to be not that promising or if we have too little data, we can attempt to just use the Genius song lyrics metadata with our extracted features because they have a lot more variety of songs.
+ 
+Another issue is that some of the songs we selected may be from a lesser variety of artists than we hope (i.e. a lot of the K-pop is BTS).
