@@ -10,6 +10,8 @@ We are selecting these datasets because they are pretty comprehensive/we don't h
 
 We are also really only interested in scoping to differentiate between Asian pop, and so we chose to only include songs that are Chinese/Japanese/Korean/Indian (which we filtered by language code).
 
+Our final data we are analyzing can be found in ```data/asian_songs_translated_w_metadata_lyric_features.parquet```. The code to make this dataset can be found in ```eda/eda.ipynb```. To run the notebook, you must first ensure that you download the csv data from the links above and convert to parquet (respectively, name them song_lyrics.parquet and song_metadata.parquet).
+
 ---------
 ## Exploratory Data Analysis
 
@@ -44,4 +46,5 @@ Answered above.
 We learned that __________.
 
 ### What issues or open questions remain?
+
 
