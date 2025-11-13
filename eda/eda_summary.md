@@ -26,6 +26,8 @@ Japanese - 50
 Korean - 50   
 Chinese - 24   
 
+For this data, however, at least all of the columns are filled.
+
 ### Include at least three informative visualizations (distribution, correlation, grouping, or trend).
 
 ### Identify initial ideas for features and any anticipated challenges (imbalance, sparsity, etc.).
@@ -42,3 +44,4 @@ Answered above.
 We learned that __________.
 
 ### What issues or open questions remain?
+
