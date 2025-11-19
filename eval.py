@@ -18,6 +18,7 @@ from sklearn.metrics import (
     classification_report,
 )
 
+from random_forest import RandomForestRegionClassifier
 
 
 def plot_roc_curves_multiclass(y_true, proba_dict, class_names, out_html="roc_curve.html"):
@@ -118,8 +119,8 @@ def main():
     # Define models (add more later)
     models = {
         "DummyMostFreq": DummyClassifier(strategy="most_frequent"),
+        "RandomForest": RandomForestRegionClassifier(),
         # "KNN": KNNClassifier(),
-        # "RandomForest": RFClassifier(),
         # "SVM": SVMClassifier(probability=True),
     }
 
