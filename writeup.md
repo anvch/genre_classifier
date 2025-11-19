@@ -13,7 +13,7 @@ Our baseline classifier currently uses dummy classification to classify every so
 - It gives a valid base performance for us to make sure our model always performs better. If our model barely beats the baseline, we know to rethink our approach.
 - It trains basically instantly as there is no computational logic.
 
-### Weaknesses of the baselines
+### Weaknesses of the baseline:
 - It ignores all the features and simply looks at the most frequent genre.
 - The model provides no insight and does not explain which features matter.
 - Since there is more Indian music, it predicts that 100% of the time, therefore giving us 100% recall for India and 0% for the others.
