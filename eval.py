@@ -19,7 +19,7 @@ from sklearn.metrics import (
 )
 
 from random_forest import RandomForestRegionClassifier
-
+from svm_classifier import SVMGenreClassifier
 
 def plot_roc_curves_multiclass(y_true, proba_dict, class_names, out_html="roc_curve.html"):
     y_bin = label_binarize(y_true, classes=list(range(len(class_names))))
@@ -121,7 +121,7 @@ def main():
         "DummyMostFreq": DummyClassifier(strategy="most_frequent"),
         "RandomForest": RandomForestRegionClassifier(),
         # "KNN": KNNClassifier(),
-        # "SVM": SVMClassifier(probability=True),
+        "SVM": SVMGenreClassifier(probability=True),
     }
 
     predictions = {}
@@ -153,3 +153,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
