@@ -26,5 +26,12 @@ In our results, we got the exact same accuracy result. This seems very suspiciou
 ---
 
 ## Ideas for final report (e.g., new features, different algorithms, hyperparameter tuning).
-![Feature importance](data/feature%20importance.png)
+![Feature importance](results/feature%20importance.png)
+
 We extracted the most important features for the random forest model. We could try using these fields only to train some models. In addition, we could try to tune some hyperparameters such as limiting the depth of the trees more to ensure we don't overfit our models. However, it is kind of hard to see if are actually classifying based on any identifiable feature well. A good initial step we will take before hyperparameter tuning is trying our classifer on English songs/American pop and see if we can visually identify any trends and see if our classifier is interesting at all before going into finetuning. We could also try implementing cross fold validation because this model may only be training on this limited dataset and learn the noise, as mentioned above.
+
+Our learnings are evident from our visualizations. XGBoost shows high AUC but not perfect, which shows it is learning rather than overfitting. It also performs consistently across ethnic groups, even with fewer samples. Random forest having an AUC of 1 is very likely a result of overfitting.
+
+![PR Curve](results/prcurve.jpg)
+
+![ROC Curve](results/roccurve.jpg)
