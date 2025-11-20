@@ -20,7 +20,7 @@ from sklearn.metrics import (
 
 from random_forest import RandomForestRegionClassifier
 from svm_classifier import SVMGenreClassifier
-
+from XGBoost_classifier import XGBoostGenreClassifier
 def plot_roc_curves_multiclass(y_true, proba_dict, class_names, out_html="roc_curve.html"):
     y_bin = label_binarize(y_true, classes=list(range(len(class_names))))
     fig = go.Figure()
@@ -120,7 +120,7 @@ def main():
     models = {
         "DummyMostFreq": DummyClassifier(strategy="most_frequent"),
         "RandomForest": RandomForestRegionClassifier(),
-        # "KNN": KNNClassifier(),
+        "XGBoost": XGBoostGenreClassifier(),
         "SVM": SVMGenreClassifier(probability=True),
     }
 
@@ -137,7 +137,7 @@ def main():
         # Align columns to encoded class order [0..K-1]
         if y_proba is not None and hasattr(model, "classes_"):
             y_proba = _align_proba_columns(y_proba, model.classes_, n_classes)
-        probabilities[name] = y_proba
+        probabilities[name] = y_proba  
 
     print("Classifier Comparison (label = region_group)")
     for name in models.keys():
@@ -145,6 +145,7 @@ def main():
 
     # Only include models that produced probabilities
     proba_models = {k: v for k, v in probabilities.items() if v is not None}
+    print(f"Models with probabilities: {list(proba_models.keys())}")
     if len(proba_models) > 0:
         plot_roc_curves_multiclass(y_test_enc, proba_models, class_names, out_html="roc_curve.html")
         plot_pr_curves_multiclass(y_test_enc, proba_models, class_names, out_html="pr_curve.html")
@@ -153,4 +154,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
