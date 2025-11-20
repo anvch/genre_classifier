@@ -147,8 +147,8 @@ def main():
     proba_models = {k: v for k, v in probabilities.items() if v is not None}
     print(f"Models with probabilities: {list(proba_models.keys())}")
     if len(proba_models) > 0:
-        plot_roc_curves_multiclass(y_test_enc, proba_models, class_names, out_html="roc_curve.html")
-        plot_pr_curves_multiclass(y_test_enc, proba_models, class_names, out_html="pr_curve.html")
+        plot_roc_curves_multiclass(y_test_enc, proba_models, class_names, out_html="results/roc_curve.html")
+        plot_pr_curves_multiclass(y_test_enc, proba_models, class_names, out_html="results/pr_curve.html")
         print("\nSaved interactive plots: roc_curve.html, pr_curve.html")
 
 
