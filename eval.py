@@ -18,7 +18,7 @@ from sklearn.metrics import (
     classification_report,
 )
 
-from random_forest import RandomForestRegionClassifier
+from randomforest_classifier import RandomForestRegionClassifier
 from svm_classifier import SVMGenreClassifier
 from XGBoost_classifier import XGBoostGenreClassifier
 def plot_roc_curves_multiclass(y_true, proba_dict, class_names, out_html="roc_curve.html"):
