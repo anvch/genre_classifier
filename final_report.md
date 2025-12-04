@@ -1,4 +1,4 @@
-# **Music Genre Classification Using Machine Learning**
+# **International Pop Genre Classification + Extension to American Pop**
 
 **Angela Chen, Pragati Toppo, Samiksha Karimbil**
 ---
@@ -15,23 +15,18 @@ Our analysis highlights the challenges of genre classification when working with
 
 ## **2. Dataset and Preprocessing**
 
-### **2.1 Dataset Overview**
+### **2.1 Dataset Overview + Feature Extraction**
 
-Our dataset consists of music across 4 languages, with a disproportionate number of Indian songs. After preprocessing, we obtained:
+Our dataset consists of music across 4 languages. After preprocessing (combining lyrics and metadata from our Genius lyrics and Spotify metadata datasets), we obtained 62 Indian, 50 Korean, 50 Chinese, and 24 Chinese songs. This is a lot less data than we initially expected (with thousands of songs in the original datasets), but it makes sense considering the difficulty of joining on title/artist that may have slight differences between the datasets. We attempted to alleviate this difference by normalizing the text and making a join key, yet this is our result. This imbalance is a central challenge throughout the project.
 
-* **Total samples:** 38
-* **Genres represented:** Korean pop, Chinese pop, Japanese pop, Indian pop
-* **Test set size:** 38 songs
-* **Most common class:** Indian (13 samples in test set)
+At this point, the dataset includes title, tag (genre), artist, year, views, features, lyrics, id, language, region_group, join_key, popularity, duration_ms, acousticness, explicit, energy, danceability, key, loudnes, mode, speechiness, instrumentalness, liveness, valence, tempo.
 
-This imbalance is a central challenge throughout the project.
-
-### **2.2 Feature Extraction**
+After creating this combined dataset, we cleaned the lyrics to remove text such as '[CHORUS]' and then translated all of the lyrics to English to avoid data leakage. We then extracted features from the lyrics such as word_count, unique_words, repetition_ratio, lexical_diversity, sentiment_polarity, and embedding (of the lyrics). We chose to extract these features because we were curious whether there was a common sentiment or theme among songs of certain genre, as well as patterns in the range of vocabulary used.
 
 
-### **2.3 Train/Test Split**
+### **2.2 Train/Test Split**
 
-To evaluate model generalization, we used an 80/20 split, with stratification to preserve genre proportions as well as possible given the imbalance.
+To evaluate model generalization, we used an 80/20 split, with stratification to preserve genre proportions as well as possible given the imbalance. Our true label of the genre was region_group. We decided not to include columns such as title, artist, year, views, features, lyrics, id, language, join_key, popularity, explicit, and clean lyrics because we either thought they were irrelevant or had little relevance, or because we thought that having those would be too obvious as too what genre it is (i.e. a Chinese song having a Chinese title, or BTS having a K-pop song). In most of the models, we also chose to just use the numerical fields as it was easier to develop compared to including categorical fields as well.
 
 ---
 
