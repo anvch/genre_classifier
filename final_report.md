@@ -5,11 +5,11 @@
 
 ## **1. Introduction**
 
-Automated music genre classification has become increasingly relevant as streaming platforms, recommendation systems, and digital archives handle millions of audio tracks. Traditional approaches rely on human tagging or metadata, which is often inconsistent and subjective. Machine learning, paired with modern audio feature extraction, provides a scalable and data-driven pathway for robust genre prediction.
+As music from Asian countries becomes more mainstream in American media, we have also found ourselves becoming avid listeners of this music. Despite not being able to understand the lyrics, we enjoy these forms of music. For our final project of the Knowledge Discovery from Data class, we wanted to see if these genres are distinguishable based on audio features and lyrics alone. 
 
-This project aims to build and evaluate a machine-learning system capable of classifying audio tracks into multiple genres. We compare classical machine-learning models, gradient-boosting methods, and ensemble methods to understand their strengths and limitations when trained on a small, imbalanced dataset.
+Our project uses machine learning to classify a given song into one of the four languages based on limited features. After finding the best model, we also thought it would be interesting to take American pop music and classify it as well. This resulted in some very interesting findings that we discuss below.
 
-Our analysis highlights the challenges of genre classification when working with limited and skewed data, and demonstrates that—while some models show promising learning behavior—overfitting and dataset bias significantly impact generalization performance. We propose several improvements for future iterations, including targeted feature selection, cross-validation, and dataset expansion.
+We believe our results to be accurate because of the evaluation metrics, and also as regular listeners of these four genres, we feel that the model was able to accurately extract key distinguishing features of the music.
 
 ---
 
@@ -132,14 +132,14 @@ With only 38 test samples:
 
 ---
 
-## **7. Future Work**
+## **7. American music classification**
 
-Based on our findings, we propose several improvements for the next iteration:
-
-- Dataset Expansion: A larger, more diverse dataset would drastically improve model stability. Adding English/American pop songs is a planned next step.
-- Feature Selection - Using only the top N features from Random Forest importance values may reduce noise and improve generalization.
-- Hyperparameter Tuning:
-Promising directions include limiting Random Forest depth, reducing the number of estimators, adjusting XGBoost learning rate and max_depth, grid search for SVM C and gamma values
+When we used our model to classify American songs, we found these interesting features per genre:
+- Korean pop - The songs that got classified as Korean tended to be the ones that were more popular. They had basic pop beats and repetitive choruses, with catchy hooks that were easy to sing along to. This is very telling of the earworm-like music that the Kpop industry frequently pushes out. It also makes sense that Kpop has almost become mainstream, and the top groups such as BTS and Blackpink have become household names.
+- Chinese pop - The songs classified as Chinese had lyrics that were more emotional and meaningful in nature. They were instrument heavy and focused on the deeper meanings. This checks out, as Chinese music often carries themes of romance or heartbreak.
+- Japanese pop - The songs that were classified as Japanese are commonly described as 'emo' music. The lyrics and sound carry stronger emotions of angst and pain. We find this to be accurate because popular music from Japan is often rock music which carries these themes.
+- Indian pop - The songs classified as Indian were more upbeat and held a more shallow meaning than the others. A majority of popular music in India does not hold a lot of deeper meaning, mainly focusing on having fun or being in love, so we felt this was fairly accurate as well.
+ 
 ---
 
 ## **8. Conclusion**
