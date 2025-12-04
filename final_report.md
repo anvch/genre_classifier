@@ -51,30 +51,9 @@ Hyperparameters were initially left at defaults to establish a comparison baseli
 
 ---
 
-## **4. Baseline Model Performance**
+## **4. Results and Observed Behavior**
 
-Our baseline predicts the majority genre, Indian, for every input. Despite its simplicity, it provides an important lower bound for evaluating real models.
-
-### **Strengths**
-
-* Establishes a minimum viable benchmark
-* Trains instantly
-* Useful for sanity-checking model performance
-
-### **Weaknesses**
-
-* Uses no meaningful features
-* Offers no interpretability
-* Provides 100% recall for Indian and 0% recall for all other genres
-* Performance collapses if classes are balanced
-
-Because Indian songs comprise a large portion of the dataset, the baseline achieves deceptively high accuracy.
-
----
-
-## **5. Results and Observed Behavior**
-
-### **5.1 Identical Accuracy Concern**
+### **4.1 Identical Accuracy Concern**
 
 Across several trained models we observed identical accuracy values, which initially raised concerns. However, this is explainable given:
 
@@ -85,7 +64,7 @@ Across several trained models we observed identical accuracy values, which initi
 
 Small datasets create high variance in accuracy metrics, making it difficult to distinguish model quality.
 
-### **5.2 Random Forest and XGBoost Behavior**
+### **4.2 Model Comparison**
 
 We observed several noteworthy patterns:
 
@@ -94,27 +73,27 @@ We observed several noteworthy patterns:
 
 * **XGBoost achieved high but not perfect AUC**, indicating it is actually learning discriminative structure rather than memorizing.
 
-* Both models performed inconsistently across genres due to sample count differences.
+* **XGBoost performed slightly better than SVM**, particularly in classifying Japanese songs
 
-### **5.3 Feature Importance Analysis**
+In the end, we chose to go with XGBoost as our final model for American music classification.
 
-Random Forest feature importance (Figure 1) revealed:
+### **4.3 Feature Importance Analysis**
 
-### **5.4 ROC and Precision-Recall Curves**
+![Feature importance](results/feature%20importance.png)
 
-Both ROC and PR curves reveal clear differences in model behavior:
+We found the top important features from our model. Since it is hard to understand the actual meaning behind these specific embeddings, we looked at the other features than are more human-understandable to understand what actual patterns the model is training on.
 
-* XGBoost maintains reasonable performance across threshold values
-* Random Forest saturates at AUC=1 early, a hallmark of memorization
-* PR curves show instability for minority genres, confirming class imbalance issues
+![Important Features per Model](results/important_features_vis.png)
+
+These results seem to be pretty intuitive, as we will discuss in our later section on American Music Classification.
 
 ---
 
-## **6. Limitations and Sources of Bias**
+## **5. Limitations and Sources of Bias**
 
 Several factors significantly impact model reliability:
 
-### **6.1 Dataset Imbalance**
+### **5.1 Dataset Imbalance**
 
 The dominance of Indian songs causes models to:
 
@@ -122,7 +101,7 @@ The dominance of Indian songs causes models to:
 * Struggle to learn minority genres
 * Exhibit inflated accuracy despite poor real-world performance
 
-### **6.2 Small Training and Test Sets**
+### **5.2 Small Training and Test Sets**
 
 With only 38 test samples:
 
@@ -132,7 +111,7 @@ With only 38 test samples:
 
 ---
 
-## **7. American music classification**
+## **6. American Music Classification**
 
 When we used our model to classify American songs, we found these interesting features per genre:
 - Korean pop - The songs that got classified as Korean tended to be the ones that were more popular. They had basic pop beats and repetitive choruses, with catchy hooks that were easy to sing along to. This is very telling of the earworm-like music that the Kpop industry frequently pushes out. It also makes sense that Kpop has almost become mainstream, and the top groups such as BTS and Blackpink have become household names.
@@ -142,7 +121,7 @@ When we used our model to classify American songs, we found these interesting fe
  
 ---
 
-## **8. Conclusion**
+## **7. Conclusion**
 
 This project explores the challenges and possibilities of machine-learning-based music genre classification using a small, imbalanced dataset. Our analysis shows:
 
